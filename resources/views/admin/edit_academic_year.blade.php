@@ -1,6 +1,10 @@
 @extends('admin.layout')
 @section('customCss')
+<link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 
+<link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+{{-- problem --}}
 @endsection
 @section('content')
 
@@ -46,13 +50,14 @@
                         </div>
 
 
-                        <form action="{{route('academic-year.store')}}" method="POST">
+                        <form action="{{route('academic_year.update')}}" method="POST">
                             @csrf
+                            <input type="hidden" name="id" value="{{$academic_year}->id}">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Academic Year</label>
-                                    <input type="text" class="form-control" name='name' id="exampleInputEmail1"
-                                        placeholder="Enter Academic Year">
+                                    <input type="text" class="form-control" value="{{old('name',$academic_year->name)}}"
+                                        name='name' id="exampleInputEmail1" placeholder="Enter Academic Year">
                                 </div>
                                 @error('name')
                                 <p class="text-danger">{{$message}}</p>
@@ -62,7 +67,7 @@
                             </div>
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Update Academic Year</button>
                             </div>
                         </form>
                     </div>

@@ -17,11 +17,24 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'admin.auth'], function () {
         //
         Route::get('logout', [AdminController::class, 'logout'])->name('admin.logout');
+
         Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
         Route::get('form', [AdminController::class, 'form'])->name('admin.form');
+
         Route::get('table', [AdminController::class, 'table'])->name('admin.table');
-        Route::get('academic-year/create', [AcademicYearController::class, 'index'])->name('academic-year.create');
-        Route::post('academic-year/store', [AcademicYearController::class, 'store'])->name('academic-year.store');
+
+        Route::get('academic_year/create', [AcademicYearController::class, 'index'])->name('academic_year.create');
+
+        Route::post('academic_year/store', [AcademicYearController::class, 'store'])->name('academic_year.store');
+
+        Route::get('academic_year/read', [AcademicYearController::class, 'read'])->name('academic_year.read');
+
+        Route::get('academic_year/edit/{id}', [AcademicYearController::class, 'edit'])->name('academic_year.edit');
+
+        Route::delete('academic_year/delete/{id}', [AcademicYearController::class, 'delete'])->name('academic_year.delete');
+
+        Route::post('academic_year/update/{id}', [AcademicYearController::class, 'update'])->name('academic_year.update');
     });
 });
 
