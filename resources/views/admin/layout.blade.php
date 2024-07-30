@@ -7,6 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin</title>
+    {{-- ICON IS NOT WORKING --}}
+    <link rel="icon" href="{{ asset('images/icons8-books-16.png') }}">
     <base href="{{ asset('admincss') }}/" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
@@ -28,7 +30,6 @@
     <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
 
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-
     @yield('customCss')
 </head>
 

@@ -42,10 +42,18 @@ class AdminController extends Controller
     }
     public function register()
     {
+        // $user = new User();
+        // $user->name = 'Narayan';
+        // $user->role = 'student';
+        // $user->email = 'narayan@gmail.com';
+        // $user->password = Hash::make('admin');
+        // $user->save(); // if not written then it will not show details in Database.
+        // return redirect()->route('admin.login')->with('success', 'User created successfully.');
+
         $user = new User();
-        $user->name = 'Narayan';
-        $user->role = 'student';
-        $user->email = 'narayan@gmail.com';
+        $user->name = 'Admin';
+        $user->role = 'admin';
+        $user->email = 'admin@gmail.com';
         $user->password = Hash::make('admin');
         $user->save(); // if not written then it will not show details in Database.
         return redirect()->route('admin.login')->with('success', 'User created successfully.');
