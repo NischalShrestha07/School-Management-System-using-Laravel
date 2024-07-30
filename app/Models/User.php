@@ -16,11 +16,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    // below changes is made to add admin guard in database
+    protected $guard = 'admin';
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
