@@ -25,7 +25,7 @@ class FeeHeadController extends Controller
         $data->name = $request->name;
         $data->save();
 
-        return redirect()->route('feehead.create')->with('success', 'Fee Head Added Successfully.');
+        return redirect()->route('feehead.read')->with('success', 'Fee Head Added Successfully.');
     }
 
     public function read()
