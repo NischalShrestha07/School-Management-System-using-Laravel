@@ -30,12 +30,6 @@ class AcademicYearController extends Controller
         // dd($data);
         return view('admin.academic_year_list', $data);
     }
-    public function delete($id)
-    {
-        $data = AcademicYear::find($id);
-        $data->delete();
-        return redirect()->route('academic_year.read')->with('success', 'Academic Year Deleted Successfully.');
-    }
 
 
     public function edit($id)
@@ -57,5 +51,12 @@ class AcademicYearController extends Controller
         }
 
         return redirect()->route('academic_year.read')->with('error', 'Academic Year not found.');
+    }
+
+    public function delete($id)
+    {
+        $data = AcademicYear::find($id);
+        $data->delete();
+        return redirect()->route('academic_year.read')->with('success', 'Academic Year Deleted Successfully.');
     }
 }

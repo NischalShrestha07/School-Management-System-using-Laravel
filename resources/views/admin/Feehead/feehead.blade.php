@@ -15,12 +15,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Academic Year</h1>
+                    <h1> Fee Head</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item active">Academic Year</li>
+                        <li class="breadcrumb-item active">Fee Head</li>
                     </ol>
                 </div>
             </div>
@@ -46,18 +46,17 @@
 
 
                         <div class="card-header">
-                            <h3 class="card-title">Add Academic Year</h3>
+                            <h3 class="card-title">Add Fee Head</h3>
                         </div>
 
 
-                        <form action="{{route('academic_year.update',$academic_year->id)}}" method="POST">
+                        <form action="{{route('feehead.store')}}" method="POST">
                             @csrf
-                            @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Academic Year</label>
-                                    <input type="text" class="form-control" value="{{old('name',$academic_year->name)}}"
-                                        name='name' id="exampleInputEmail1" placeholder="Enter Academic Year">
+                                    <label for="exampleInputEmail1">Fee Head Name</label>
+                                    <input type="text" class="form-control" name='name' id="exampleInputEmail1"
+                                        placeholder="Enter Fee Head Name">
                                 </div>
                                 @error('name')
                                 <p class="text-danger">{{$message}}</p>
@@ -67,7 +66,7 @@
                             </div>
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Update Academic Year</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>
                     </div>

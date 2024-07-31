@@ -4,6 +4,7 @@ use App\Http\Controllers\AcademicYear;
 use App\Http\Controllers\AcademicYearController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\FeeHeadController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -44,6 +45,18 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('class/create', [ClassesController::class, 'index'])->name('class.create');
         Route::post('class/store', [ClassesController::class, 'store'])->name('class.store');
         Route::get('class/read', [ClassesController::class, 'read'])->name('class.read');
+        Route::get('class/edit/{id}', [ClassesController::class, 'edit'])->name('class.edit');
+        Route::put('class/update/{id}', [ClassesController::class, 'update'])->name('class.update');
+        Route::delete('class/delete/{id}', [ClassesController::class, 'delete'])->name('class.delete');
+
+
+        //Fee Head manageements
+        Route::get('feehead/create', [FeeHeadController::class, 'index'])->name('feehead.create');
+        Route::post('feehead/store', [FeeHeadController::class, 'store'])->name('feehead.store');
+        Route::get('feehead/read', [FeeHeadController::class, 'read'])->name('feehead.read');
+        Route::get('feehead/edit/{id}', [FeeHeadController::class, 'edit'])->name('feehead.edit');
+        Route::put('feehead/update/{id}', [FeeHeadController::class, 'update'])->name('feehead.update');
+        Route::delete('feehead/delete/{id}', [FeeHeadController::class, 'delete'])->name('feehead.delete');
     });
 });
 

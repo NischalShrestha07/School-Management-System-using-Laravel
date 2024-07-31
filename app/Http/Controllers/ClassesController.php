@@ -26,6 +26,32 @@ class ClassesController extends Controller
     {
         $data['class'] = Classes::get();
         // dd($data);
-        return view('admin.class.class.list', $data);
+        return view('admin.class.class_list', $data);
+    }
+    public function edit($id)
+    {
+        $data['class'] = Classes::find($id);
+        return view('admin.class.edit_class', $data);
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required'
+        ]);
+        $class = Classes::find($id);
+        if ($class) {
+            $class->name = $request->name;
+            $class->save();
+
+            return redirect()->route('class.read')->with('success', 'Class added successfully.');
+        }
+        return redirect()->route('class.read')->with('error', 'Class not found.');
+    }
+    public function delete($id)
+    {
+        $data = Classes::find($id);
+        $data->delete();
+
+        return redirect()->route('class.read')->with('success', 'Class Deleted successfully.');
     }
 }

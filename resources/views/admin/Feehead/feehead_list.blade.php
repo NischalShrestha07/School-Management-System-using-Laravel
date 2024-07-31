@@ -14,12 +14,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Academic Year</h1>
+                    <h1>Fee Head </h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item active">Academic Year List</li>
+                        <li class="breadcrumb-item active">Fee Head List</li>
                     </ol>
                 </div>
             </div>
@@ -55,19 +55,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($academic_year as $item)
+                                    @foreach ($feehead as $item)
 
                                     <tr>
                                         <td>{{$item->id}}</td>
                                         <td>{{$item->name}}</td>
                                         <td>{{$item->created_at}}</td>
                                         <td><a class="btn btn-primary" style="padding: 14px 35px"
-                                                href="{{route('academic_year.edit',$item->id)}}">Edit
+                                                href="{{route('feehead.edit',$item->id)}}">Edit
                                             </a>
                                         </td>
+
                                         <td>
-                                            <form class="btn btn-danger"
-                                                action="{{route('academic_year.delete',$item->id)}}" method="POST">
+                                            <form class="btn btn-danger" action="{{route('feehead.delete',$item->id)}}"
+                                                method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>

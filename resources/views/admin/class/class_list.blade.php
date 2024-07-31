@@ -63,9 +63,15 @@
                                         <td>{{$item->created_at}}</td>
                                         <td><a class="btn btn-primary" href="{{route('class.edit',$item->id)}}">Edit</a>
                                         </td>
-                                        <td><a class="btn btn-danger"
-                                                href="{{route('class.delete',$item->id)}}">Delete</a></td>
-
+                                        {{-- <td><a class="btn btn-danger"
+                                                href="{{route('class.delete',$item->id)}}">Delete</a></td> --}}
+                                        <td>
+                                            <form action="{{route('class.delete',$item->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tpbody>
