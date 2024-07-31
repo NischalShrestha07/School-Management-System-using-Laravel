@@ -21,11 +21,12 @@ class AcademicYearController extends Controller
         $data = new AcademicYear();
         $data->name = $request->name;
         $data->save();
-        return redirect()->route('academic_year.create')->with('success', 'Academic Year added successfully.');
+
+        return redirect()->route('academic_year.create')->with('success', 'Academic Year Added successfully.');
     }
     public function read()
     {
-        $data['academic_year'] = AcademicYear::get();
+        $data['academic_year'] = AcademicYear::all();
         // dd($data);
         return view('admin.academic_year_list', $data);
     }
@@ -33,22 +34,28 @@ class AcademicYearController extends Controller
     {
         $data = AcademicYear::find($id);
         $data->delete();
-        return redirect()->route('academic_year.read')->with('success', 'Academic Year Added Successfully.');
+        return redirect()->route('academic_year.read')->with('success', 'Academic Year Deleted Successfully.');
     }
 
 
     public function edit($id)
     {
-        $data['academic_year'] = AcademicYear::find($id);
-        return view('admin.edit_academic_year', $data);
+        $academic_year = AcademicYear::find($id);
+        return view('admin.edit_academic_year', compact('academic_year'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $data = AcademicYear::find($request->id);
-        $data->name = $request->name;
-        $data->update();
+        $request->validate([
+            'name' => 'required'
+        ]);
+        $academic_year = AcademicYear::find($id);
+        if ($academic_year) {
+            $academic_year->name = $request->name;
+            $academic_year->save();
+            return redirect()->route('academic_year.read')->with('success', 'Academic Year Updated Successfully.');
+        }
 
-        return redirect()->route('academic_year.read')->with('success', 'Academic Year Updated Successfully.');
+        return redirect()->route('academic_year.read')->with('error', 'Academic Year not found.');
     }
 }

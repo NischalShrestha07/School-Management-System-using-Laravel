@@ -14,12 +14,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Academic Year</h1>
+                    <h1>Class</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item active">Academic Year List</li>
+                        <li class="breadcrumb-item active">Class List</li>
                     </ol>
                 </div>
             </div>
@@ -54,36 +54,21 @@
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach ($academic_year as $item)
+                                <tpbody>
+                                    @foreach ($class as $item)
 
                                     <tr>
                                         <td>{{$item->id}}</td>
                                         <td>{{$item->name}}</td>
                                         <td>{{$item->created_at}}</td>
-                                        <td><a class="btn btn-primary" style="padding: 14px 35px"
-                                                href="{{route('academic_year.edit',$item->id)}}">Edit
-                                            </a>
+                                        <td><a class="btn btn-primary" href="{{route('class.edit',$item->id)}}">Edit</a>
                                         </td>
-                                        {{-- <td>
-                                            <form action="{{route('academic_year.edit',$item->id)}}" method="POST">
-                                                @csrf
-                                                @method('PUT')
-                                                <button type="submit" class="btn btn-primary">Edit</button>
-                                            </form>
-                                        </td> --}}
-                                        <td>
-                                            <form class="btn btn-danger"
-                                                action="{{route('academic_year.delete',$item->id)}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-                                        </td>
+                                        <td><a class="btn btn-danger"
+                                                href="{{route('class.delete',$item->id)}}">Delete</a></td>
 
                                     </tr>
                                     @endforeach
-                                </tbody>
+                                </tpbody>
                                 <tfoot>
                                     <tr>
                                         <th>Rendering engine</th>
