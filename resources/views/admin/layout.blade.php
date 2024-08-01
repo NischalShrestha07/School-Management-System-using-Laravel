@@ -307,6 +307,33 @@
                             </ul>
 
                         </li>
+                        {{-- feestructure mngt --}}
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+
+                                <p>
+                                    Fee Structure Mngt
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('feestructure.create')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Record</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Record</p>
+                                    </a>
+
+                                </li>
+                            </ul>
+
+                        </li>
 
 
                     </ul>

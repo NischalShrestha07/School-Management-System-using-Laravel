@@ -23,16 +23,16 @@ class FeeStructureController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $request->validate([]);
+        return view('admin.FeeStructure.feestructure_list');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(FeeStructure $feeStructure)
+    public function read(Request $request)
     {
-        //
+        // $feestructure = FeeStructure::all();
+        // return view('admin.FeeStructure.feestructure_list', compact('feestructure'));
     }
 
     /**
@@ -40,7 +40,12 @@ class FeeStructureController extends Controller
      */
     public function edit(FeeStructure $feeStructure)
     {
-        //
+
+        //validate is not written
+        // $feestructure = FeeStructure::find($id);
+        // if ($feestructure) {
+        //     // $feestructure->name
+        // }
     }
 
     /**

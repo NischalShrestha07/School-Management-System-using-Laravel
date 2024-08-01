@@ -6,9 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    /**$table->foreignId('class_id'): This creates a new column called class_id in your table, which will store the ID of a class. This column is used to link rows in this table to rows in another table (usually called classes).
+
+    ->constrained(): This tells Laravel that the class_id column should be treated as a foreign key. A foreign key is a way to enforce a link between two tables, meaning that the value in class_id must exist in the id column of the classes table.
+
+    ->onDelete('cascade'): This means that if a row in the classes table is deleted, then all rows in the current table that reference this class (through class_id) will also be deleted automatically. This helps to keep your database clean and consistent. */
+
     public function up(): void
     {
         Schema::create('fee_structures', function (Blueprint $table) {

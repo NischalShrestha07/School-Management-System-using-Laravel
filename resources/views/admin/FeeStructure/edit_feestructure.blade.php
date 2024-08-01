@@ -54,7 +54,7 @@
                             @csrf
                             @method('PUT')
                             <div class="card-body">
-                                <div class="form-group">
+                                <div class="form-group-col-md-4">
                                     <label for="exampleInputEmail1">Fee Structure</label>
                                     <input type="text" class="form-control" value="{{old('name',$feestructure->name)}}"
                                         name='name' id="exampleInputEmail1" placeholder="Enter Fee Structure">
