@@ -50,6 +50,17 @@
                             @csrf
                             <div class="card-body">
                                 <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="">Select Class</label>
+                                        <select name="class_id" class="form-control" id="">
+                                            <option value="">Select Class</option>
+                                            @foreach (classes as $item)
+                                            <option value=""></option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">April Fee </label>
                                         <input type="text" class="form-control" name='april' id="exampleInputEmail1"
@@ -65,6 +76,8 @@
                                         <input type="text" class="form-control" name='june' id="exampleInputEmail1"
                                             placeholder="Enter June Fee">
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">July Fee </label>
                                         <input type="text" class="form-control" name='july' id="exampleInputEmail1"
@@ -80,6 +93,8 @@
                                         <input type="text" class="form-control" name='september' id="exampleInputEmail1"
                                             placeholder="Enter September Fee">
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">October Fee </label>
                                         <input type="text" class="form-control" name='october' id="exampleInputEmail1"
@@ -95,6 +110,8 @@
                                         <input type="text" class="form-control" name='december' id="exampleInputEmail1"
                                             placeholder="Enter December Fee">
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">January Fee </label>
                                         <input type="text" class="form-control" name='january' id="exampleInputEmail1"
@@ -115,7 +132,7 @@
                             </div>
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Add Fee Structure</button>
                             </div>
                         </form>
                     </div>

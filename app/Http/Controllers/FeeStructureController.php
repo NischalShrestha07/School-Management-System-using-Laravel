@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AcademicYear;
+use App\Models\Classes;
+use App\Models\FeeHead;
 use App\Models\FeeStructure;
 use Illuminate\Http\Request;
 
@@ -14,25 +17,25 @@ class FeeStructureController extends Controller
      */
     public function index()
     {
+        $data['classes'] = Classes::all();
+        $data['academic_year'] = AcademicYear::all();
+        $data['feehead'] = FeeHead::all();
+
         return view('admin.FeeStructure.feestructure');
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
+        $feestructure = new FeeStructure();
+
         return view('admin.FeeStructure.feestructure_list');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function read(Request $request)
     {
-        // $feestructure = FeeStructure::all();
-        // return view('admin.FeeStructure.feestructure_list', compact('feestructure'));
+        $feestructure = FeeStructure::all();
+        return view('admin.FeeStructure.feestructure_list', compact('feestructure'));
     }
 
     /**
