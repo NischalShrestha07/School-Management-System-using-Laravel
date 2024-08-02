@@ -20,7 +20,7 @@ class ClassesController extends Controller
         $data = new Classes();
         $data->name = $request->name;
         $data->save();
-        return redirect()->route('class.read')->with('success', 'Class added successfully.');
+        return redirect()->route('class.create')->with('success', 'Class added successfully.');
     }
     public function read()
     {

@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('june')->nullable();
             $table->string('july')->nullable();
             $table->string('august')->nullable();
+            $table->string('september')->nullable();
             $table->string('october')->nullable();
             $table->string('november')->nullable();
             $table->string('december')->nullable();

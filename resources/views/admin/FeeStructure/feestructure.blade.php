@@ -50,14 +50,44 @@
                             @csrf
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label for="">Select Class</label>
                                         <select name="class_id" class="form-control" id="">
-                                            <option value="">Select Class</option>
-                                            @foreach (classes as $item)
-                                            <option value=""></option>
+                                            <option value="" disabled selected>Select Class</option>
+                                            @foreach ($classes as $class)
+                                            <option value="{{$class->id}}">{{$class->name}}</option>
                                             @endforeach
                                         </select>
+
+                                        @error('class_id')
+                                        <p class="text-danger">{{$message}}</p>
+
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="">Select Academic Year</label>
+                                        <select name="academic_year_id" class="form-control" id="">
+                                            <option value="" disabled selected>Select Academic Year</option>
+                                            @foreach ($academic_year as $item)
+                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                            @endforeach
+                                        </select>
+
+                                        @error('academic_year_id')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="">Select Fee Head</label>
+                                        <select name="feehead_id" class="form-control" id="">
+                                            <option value="" disabled selected>Select Fee Head</option>
+                                            @foreach ($feehead as $item)
+                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('feehead_id')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row">

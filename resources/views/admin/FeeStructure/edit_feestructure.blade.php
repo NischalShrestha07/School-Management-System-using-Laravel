@@ -50,7 +50,7 @@
                         </div>
 
 
-                        <form action="{{route('feestructure.update',$feestructure->id)}}" method="POST">
+                        {{-- <form action="{{route('feestructure.update',$feestructure->id)}}" method="POST"> --}}
                             @csrf
                             @method('PUT')
                             <div class="card-body">

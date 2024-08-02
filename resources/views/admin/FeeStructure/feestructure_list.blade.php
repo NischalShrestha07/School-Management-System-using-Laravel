@@ -65,7 +65,7 @@
                                                 href="{{route('feestructure.edit',$item->id)}}">Edit
                                             </a>
                                         </td>
-
+                                        {{--
                                         <td>
                                             <form class="btn btn-danger"
                                                 action="{{route('feestructure.delete',$item->id)}}" method="POST">
@@ -73,7 +73,7 @@
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
-                                        </td>
+                                        </td> --}}
 
                                     </tr>
                                     @endforeach

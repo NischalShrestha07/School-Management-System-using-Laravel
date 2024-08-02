@@ -17,18 +17,34 @@ class FeeStructureController extends Controller
      */
     public function index()
     {
-        $data['classes'] = Classes::all();
-        $data['academic_year'] = AcademicYear::all();
-        $data['feehead'] = FeeHead::all();
 
-        return view('admin.FeeStructure.feestructure');
+
+        $classes = Classes::all();
+        $academic_year = AcademicYear::all();
+        $feehead = FeeHead::all();
+        $feestructure = FeeStructure::all();
+        return view('admin.FeeStructure.feestructure', compact('classes', 'academic_year', 'feehead', 'feestructure'));
+
+        // the above/below method does the same task.
+
+        // $data['classes'] = Classes::all();
+        // $data['academic_year'] = AcademicYear::all();
+        // $data['feehead'] = FeeHead::all();
+        // return view('admin.FeeStructure.feestructure', $data);
     }
 
     public function store(Request $request)
     {
-        $feestructure = new FeeStructure();
+        // $feestructure = FeeStructure::all();
+        // return view('admin.FeeStructure.feestructure_list', compact('feestructure'));
 
-        return view('admin.FeeStructure.feestructure_list');
+        $request->validate([
+            'academic_year_id' => 'required',
+            'class_id' => 'required',
+            'feehead_id' => 'required',
+        ]);
+        FeeStructure::create($request->all());
+        return redirect()->route('feestructure.create')->with('success', 'Fee Structure added successfully.');
     }
 
 
@@ -41,14 +57,8 @@ class FeeStructureController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(FeeStructure $feeStructure)
+    public function edit($id)
     {
-
-        //validate is not written
-        // $feestructure = FeeStructure::find($id);
-        // if ($feestructure) {
-        //     // $feestructure->name
-        // }
     }
 
     /**
