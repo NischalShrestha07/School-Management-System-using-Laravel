@@ -41,6 +41,32 @@
                         @endif
                         <div class="card-header">
                             <h3 class="card-title">List of Fee Structure and Features</h3>
+
+                            <form action="">
+                                <div class="form-group col-md-4">
+                                    <label for="">Select Class</label>
+                                    <select name="class_id" class="form-control" id="">
+                                        <option value="" disabled selected>Select Class</option>
+                                        @foreach ($classes as $class)
+                                        <option value="{{$class->id}}">{{$class->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">Select Academic Year</label>
+                                    <select name="academic_year_id" class="form-control" id="">
+                                        <option value="" disabled selected>Select Academic Year</option>
+                                        @foreach ($academic_year as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <button class="btn btn-success" type="submit">Filter Data</button>
+                                </div>
+                            </form>
+
                         </div>
 
                         <div class="card-body">

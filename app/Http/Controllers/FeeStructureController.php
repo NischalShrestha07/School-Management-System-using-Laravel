@@ -45,9 +45,18 @@ class FeeStructureController extends Controller
 
     public function read(Request $request)
     {
-        $feestructure = FeeStructure::with(['FeeHead', 'AcademicYear'])->latest()->get();
+        $query = FeeStructure::query();
+        if ($request->has('class_id') && $request->clas_id != '') {
+            $query->where('class_id', $request->class_id);
+        }
+
+
+        $feestructure = FeeStructure::with(['FeeHead', 'AcademicYear', 'Classes'])->latest()->get();
         // dd($data);
-        return view('admin.FeeStructure.feestructure_list', compact('feestructure'));
+        $classes = Classes::all();
+        $academic_year = AcademicYear::all();
+
+        return view('admin.FeeStructure.feestructure_list', compact('feestructure', 'academic_year', 'classes'));
     }
     public function delete($id)
     {
@@ -60,23 +69,38 @@ class FeeStructureController extends Controller
     // return redirect()->back()->with('success','We are redirected to previous interface.');
 
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit($id)
     {
         $feehead = FeeHead::all();
         $classes = Classes::all();
         $academic_year = AcademicYear::all();
-        $feestructure = FeeStructure::find($id);
-        return view("admin.feestructure.edit_feestructure", compact('feestructure', 'feehead', 'classes', 'academic_year'));
+
+        // $feestructure = FeeStructure::find($id);
+        $data = FeeStructure::find($id);
+        return view("admin.feestructure.edit_feestructure", compact('data', 'feehead', 'classes', 'academic_year'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, FeeStructure $feeStructure)
+    public function update(Request $request,  $id)
     {
-        //
+        $fee = FeeStructure::find($id);
+        $fee->class_id = $request->class_id;
+        $fee->academic_year_id = $request->academic_year_id;
+        $fee->feehead_id = $request->feehead_id;
+        $fee->april = $request->april;
+        $fee->may = $request->may;
+        $fee->june = $request->june;
+        $fee->july = $request->july;
+        $fee->august = $request->august;
+        $fee->september = $request->september;
+        $fee->october = $request->october;
+        $fee->november = $request->november;
+        $fee->december = $request->december;
+        $fee->january = $request->january;
+        $fee->february = $request->february;
+        $fee->march = $request->march;
+        $fee->update();
+
+        return redirect()->route('feestructure.read')->with('success', 'Fee Structure Updated Successfully.');
     }
 }
