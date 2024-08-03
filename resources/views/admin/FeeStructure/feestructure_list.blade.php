@@ -40,7 +40,7 @@
 
                         @endif
                         <div class="card-header">
-                            <h3 class="card-title">DataTable with default features</h3>
+                            <h3 class="card-title">List of Fee Structure and Features</h3>
                         </div>
 
                         <div class="card-body">
@@ -48,9 +48,22 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Created Time</th>
-                                        <th>Edit </th>
+                                        <th>Academic Year</th>
+                                        <th>Class</th>
+                                        <th>Fee Head </th>
+                                        <th>April</th>
+                                        <th>May</th>
+                                        <th>June</th>
+                                        <th>July</th>
+                                        <th>August</th>
+                                        <th>September</th>
+                                        <th>October</th>
+                                        <th>November</th>
+                                        <th>December</th>
+                                        <th>January</th>
+                                        <th>February</th>
+                                        <th>March</th>
+                                        <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
@@ -59,21 +72,38 @@
 
                                     <tr>
                                         <td>{{$item->id}}</td>
-                                        <td>{{$item->name}}</td>
-                                        <td>{{$item->created_at}}</td>
+                                        <td>{{$item->AcademicYear->name}}</td>
+                                        <td>{{$item->Classes->name}}</td>
+                                        <td>{{$item->FeeHead->name}}</td>
+                                        {{-- <td>{{$item->created_at}}</td> --}}
+                                        <td>{{$item->april}}</td>
+                                        <td>{{$item->may}}</td>
+                                        <td>{{$item->june}}</td>
+                                        <td>{{$item->july}}</td>
+                                        <td>{{$item->august}}</td>
+                                        <td>{{$item->september}}</td>
+                                        <td>{{$item->october}}</td>
+                                        <td>{{$item->november}}</td>
+                                        <td>{{$item->december}}</td>
+                                        <td>{{$item->january}}</td>
+                                        <td>{{$item->february}}</td>
+                                        <td>{{$item->march}}</td>
+                                        {{-- <td>{{$item->created_at}}</td> --}}
                                         <td><a class="btn btn-primary" style="padding: 14px 35px"
                                                 href="{{route('feestructure.edit',$item->id)}}">Edit
                                             </a>
                                         </td>
-                                        {{--
+
                                         <td>
                                             <form class="btn btn-danger"
-                                                action="{{route('feestructure.delete',$item->id)}}" method="POST">
+                                                action="{{route('feestructure.delete',$item->id)}}"
+                                                onclick="return confirm('Are You sure want to delete item?')"
+                                                method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
-                                        </td> --}}
+                                        </td>
 
                                     </tr>
                                     @endforeach

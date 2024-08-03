@@ -64,9 +64,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('feestructure/create', [FeeStructureController::class, 'index'])->name('feestructure.create');
         Route::post('feestructure/store', [FeeStructureController::class, 'store'])->name('feestructure.store');
         Route::get('feestructure/read', [FeeStructureController::class, 'read'])->name('feestructure.read');
-        Route::get('feestructure/edit', [FeeStructureController::class, 'edit'])->name('feestructure.edit');
-        // Route::put('feestructure/update/{id}', [FeeStructureController::class, 'update'])->name('feestructure.update');
-        // Route::delete('feestructure/delete/{id}', [FeeStructureController::class, 'delete'])->name('feestructure.delete');
+        Route::get('feestructure/edit/{id}', [FeeStructureController::class, 'edit'])->name('feestructure.edit');
+        Route::put('feestructure/update/{id}', [FeeStructureController::class, 'update'])->name('feestructure.update');
+        Route::delete('feestructure/delete/{id}', [FeeStructureController::class, 'delete'])->name('feestructure.delete');
     });
 });
 

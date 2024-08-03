@@ -17,8 +17,6 @@ class FeeStructureController extends Controller
      */
     public function index()
     {
-
-
         $classes = Classes::all();
         $academic_year = AcademicYear::all();
         $feehead = FeeHead::all();
@@ -35,9 +33,6 @@ class FeeStructureController extends Controller
 
     public function store(Request $request)
     {
-        // $feestructure = FeeStructure::all();
-        // return view('admin.FeeStructure.feestructure_list', compact('feestructure'));
-
         $request->validate([
             'academic_year_id' => 'required',
             'class_id' => 'required',
@@ -50,29 +45,37 @@ class FeeStructureController extends Controller
 
     public function read(Request $request)
     {
-        $feestructure = FeeStructure::all();
+        $feestructure = FeeStructure::with(['FeeHead', 'AcademicYear'])->latest()->get();
+        // dd($data);
         return view('admin.FeeStructure.feestructure_list', compact('feestructure'));
     }
+    public function delete($id)
+    {
+        $data = FeeStructure::find($id);
+        $data->delete();
+        return redirect()->route('feestructure.read')->with('success', 'Fee Structure Deleted Successfully.');
+    }
+
+    //want to go back to previous used interface 
+    // return redirect()->back()->with('success','We are redirected to previous interface.');
+
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit($id)
     {
+        $feehead = FeeHead::all();
+        $classes = Classes::all();
+        $academic_year = AcademicYear::all();
+        $feestructure = FeeStructure::find($id);
+        return view("admin.feestructure.edit_feestructure", compact('feestructure', 'feehead', 'classes', 'academic_year'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, FeeStructure $feeStructure)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(FeeStructure $feeStructure)
     {
         //
     }
