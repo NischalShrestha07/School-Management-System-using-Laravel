@@ -45,18 +45,28 @@ class FeeStructureController extends Controller
 
     public function read(Request $request)
     {
+        //fiters the searching of the details according to class and academic_year.
         $query = FeeStructure::query();
-        if ($request->has('class_id') && $request->clas_id != '') {
+        if ($request->has('class_id') && $request->class_id != '') {
             $query->where('class_id', $request->class_id);
+        }
+        if ($request->has('academic_year_id') && $request->academic_year_id != '') {
+            $query->where('academic_year_id', $request->academic_year_id);
+        }
+        if ($request->has('feehead_id') && $request->feehead_id != '') {
+            $query->where('feehead_id', $request->feehead_id);
         }
 
 
-        $feestructure = FeeStructure::with(['FeeHead', 'AcademicYear', 'Classes'])->latest()->get();
+        // $feestructure = FeeStructure::with(['FeeHead', 'AcademicYear', 'Classes'])->latest()->get();
+        $feestructure = $query->with('FeeHead', 'AcademicYear', 'Classes')->latest()->get();
+
         // dd($data);
         $classes = Classes::all();
         $academic_year = AcademicYear::all();
+        $feehead = FeeHead::all();
 
-        return view('admin.FeeStructure.feestructure_list', compact('feestructure', 'academic_year', 'classes'));
+        return view('admin.FeeStructure.feestructure_list', compact('feestructure', 'academic_year', 'classes', 'feehead'));
     }
     public function delete($id)
     {

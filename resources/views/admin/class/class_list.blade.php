@@ -48,7 +48,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
+                                        <th>Class</th>
                                         <th>Created Time</th>
                                         <th>Edit </th>
                                         <th>Delete</th>

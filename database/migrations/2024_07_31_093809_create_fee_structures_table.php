@@ -14,28 +14,28 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('fee_structures', function (Blueprint $table) {
-            $table->id();
-            //meaning of below codes are explained above.
-            $table->foreignId('class_id')->constrained()->onDelete('cascade');
-            $table->foreignId('academic_year_id')->constrained()->onDelete('cascade');
-            $table->foreignId('feehead_id')->constrained()->onDelete('cascade');
-            $table->string('april')->nullable();
-            $table->string('may')->nullable();
-            $table->string('june')->nullable();
-            $table->string('july')->nullable();
-            $table->string('august')->nullable();
-            $table->string('september')->nullable();
-            $table->string('october')->nullable();
-            $table->string('november')->nullable();
-            $table->string('december')->nullable();
-            $table->string('january')->nullable();
-            $table->string('february')->nullable();
-            $table->string('march')->nullable();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('fee_structures')) {
+            Schema::create('fee_structures', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('class_id')->constrained()->onDelete('cascade');
+                $table->foreignId('academic_year_id')->constrained()->onDelete('cascade');
+                $table->foreignId('feehead_id')->constrained()->onDelete('cascade');
+                $table->string('april')->nullable();
+                $table->string('may')->nullable();
+                $table->string('june')->nullable();
+                $table->string('july')->nullable();
+                $table->string('august')->nullable();
+                $table->string('september')->nullable();
+                $table->string('october')->nullable();
+                $table->string('november')->nullable();
+                $table->string('december')->nullable();
+                $table->string('january')->nullable();
+                $table->string('february')->nullable();
+                $table->string('march')->nullable();
+                $table->timestamps();
+            });
+        }
     }
-
     /**
      * Reverse the migrations.
      */
