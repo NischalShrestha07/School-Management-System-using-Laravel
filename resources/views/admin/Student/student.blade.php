@@ -33,7 +33,7 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
 
-                        {{-- tthese Session are used to print the success notice above --}}
+                        {{-- these Session are used to print the success notice above --}}
                         @if (Session::has('success'))
                         <div class="alert alert-success">
                             {{Session::get('success')}}
@@ -65,6 +65,18 @@
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-4">
+                                        <label for="">Select Academic Year</label>
+                                        <select name="academic_year_id" class="form-control" id="">
+                                            <option value="" disabled selected>Select Academic Year</option>
+                                            @foreach ($academic_year as $year)
+                                            <option value="{{$year->id}}">{{$year->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('academic_year_id')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-4">
                                         <label for="">Admission Date</label>
                                         <input type="date" class="form-control" name="admission_date">
 
@@ -90,28 +102,48 @@
                                         <label for="exampleInputEmail1">Student Name </label>
                                         <input type="text" class="form-control" name='name' id="exampleInputEmail1"
                                             placeholder="Enter Student name">
+
+                                        @error('name')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">Student's Father Name </label>
                                         <input type="text" class="form-control" name='father_name'
-                                            id="exampleInputEmail1" placeholder="Enter Student's Father Name:">
+                                            id="exampleInputEmail1" placeholder="Enter Student's Father Name">
+
+                                        @error('father_name')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">Student Mother's Name </label>
                                         <input type="text" class="form-control" name='mother_name'
-                                            id="exampleInputEmail1">
+                                            id="exampleInputEmail1" placeholder="Enter Student's Mother Name">
+
+                                        @error('mother_name')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-4">
-                                        <label for="exampleInputEmail1"> Date of Birth</label>
+                                        <label for="exampleInputEmail1">Date of Birth</label>
                                         <input type="date" class="form-control" name='dob' id="exampleInputEmail1"
                                             placeholder="Enter July Fee">
+
+                                        @error('dob')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">Mobile Number </label>
                                         <input type="text" class="form-control" name='mobno' id="exampleInputEmail1"
                                             placeholder="Enter August Fee">
+
+                                        @error('mobno')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
                                     </div>
 
                                 </div>
@@ -120,11 +152,21 @@
                                         <label for="exampleInputEmail1">Email Address </label>
                                         <input type="text" class="form-control" name='email' id="exampleInputEmail1"
                                             placeholder="Enter Email Address">
+
+                                        @error('email')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
+
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">Create Password</label>
                                         <input type="text" class="form-control" name='password' id="exampleInputEmail1"
                                             placeholder="Enter Password">
+
+                                        @error('password')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
+
                                     </div>
 
                                 </div>
@@ -136,16 +178,7 @@
                             </div>
                         </form>
                     </div>
-
-
-
-
-
                 </div>
-
-
-
-
             </div>
 
         </div>

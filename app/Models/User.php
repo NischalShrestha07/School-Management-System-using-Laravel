@@ -17,12 +17,21 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
+
     // below changes is made to add admin guard in database
     protected $guard = 'admin';
     protected $fillable = [
         'name',
         'email',
         'password',
+        'academic_year_id',
+        'class_id',
+        'father_name',
+        'mother_name',
+        'admission_date',
+        'dob',
+        'mobno',
+        'role'
     ];
 
 
