@@ -89,75 +89,50 @@
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">Student Name </label>
                                         <input type="text" class="form-control" name='name' id="exampleInputEmail1"
-                                            placeholder="Enter Studentt name">
+                                            placeholder="Enter Student name">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">Student's Father Name </label>
-                                        <input type="text" class="form-control" name='fatherName'
-                                            id="exampleInputEmail1" placeholder="Enter May Fee">
+                                        <input type="text" class="form-control" name='father_name'
+                                            id="exampleInputEmail1" placeholder="Enter Student's Father Name:">
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="exampleInputEmail1">June Fee </label>
-                                        <input type="text" class="form-control" name='june' id="exampleInputEmail1"
-                                            placeholder="Enter June Fee">
+                                        <label for="exampleInputEmail1">Student Mother's Name </label>
+                                        <input type="text" class="form-control" name='mother_name'
+                                            id="exampleInputEmail1">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-4">
-                                        <label for="exampleInputEmail1">July Fee </label>
-                                        <input type="text" class="form-control" name='july' id="exampleInputEmail1"
+                                        <label for="exampleInputEmail1"> Date of Birth</label>
+                                        <input type="date" class="form-control" name='dob' id="exampleInputEmail1"
                                             placeholder="Enter July Fee">
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="exampleInputEmail1">August Fee </label>
-                                        <input type="text" class="form-control" name='august' id="exampleInputEmail1"
+                                        <label for="exampleInputEmail1">Mobile Number </label>
+                                        <input type="text" class="form-control" name='mobno' id="exampleInputEmail1"
                                             placeholder="Enter August Fee">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="exampleInputEmail1">September Fee </label>
-                                        <input type="text" class="form-control" name='september' id="exampleInputEmail1"
-                                            placeholder="Enter September Fee">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-4">
-                                        <label for="exampleInputEmail1">October Fee </label>
-                                        <input type="text" class="form-control" name='october' id="exampleInputEmail1"
-                                            placeholder="Enter October Fee">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="exampleInputEmail1">November Fee </label>
-                                        <input type="text" class="form-control" name='november' id="exampleInputEmail1"
-                                            placeholder="Enter November Fee">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="exampleInputEmail1">December Fee </label>
-                                        <input type="text" class="form-control" name='december' id="exampleInputEmail1"
-                                            placeholder="Enter December Fee">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-4">
-                                        <label for="exampleInputEmail1">January Fee </label>
-                                        <input type="text" class="form-control" name='january' id="exampleInputEmail1"
-                                            placeholder="Enter January Fee">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="exampleInputEmail1">February Fee </label>
-                                        <input type="text" class="form-control" name='february' id="exampleInputEmail1"
-                                            placeholder="Enter February Fee">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="exampleInputEmail1">March Fee </label>
-                                        <input type="text" class="form-control" name='march' id="exampleInputEmail1"
-                                            placeholder="Enter March Fee">
                                     </div>
 
                                 </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label for="exampleInputEmail1">Email Address </label>
+                                        <input type="text" class="form-control" name='email' id="exampleInputEmail1"
+                                            placeholder="Enter Email Address">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="exampleInputEmail1">Create Password</label>
+                                        <input type="text" class="form-control" name='password' id="exampleInputEmail1"
+                                            placeholder="Enter Password">
+                                    </div>
+
+                                </div>
+
                             </div>
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Add Fee Structure</button>
+                                <button type="submit" class="btn btn-primary">Add Student</button>
                             </div>
                         </form>
                     </div>
