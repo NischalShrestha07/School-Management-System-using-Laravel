@@ -9,6 +9,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+use function Ramsey\Uuid\v1;
+
 class StudentController extends Controller
 {
     public function index()
@@ -51,5 +53,11 @@ class StudentController extends Controller
 
 
         return redirect()->route('student.create')->with('success', 'Student Added Successfully.');
+    }
+    public function read()
+    {
+        //studentClass is imported from the User Model which has class details 
+        $query = User::with(['studentClass'])->where('role', 'student')->latest('id')->get();
+        // dd($query); here to see this in browser just use the syntax and know that the return() uses doesnt effect anything.
     }
 }

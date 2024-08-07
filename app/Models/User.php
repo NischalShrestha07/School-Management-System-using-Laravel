@@ -57,4 +57,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function studentClass()
+    {
+        return $this->belongsTo(Classes::class, 'class_id');
+    }
+    public function studnetAcademicYear()
+    {
+        return $this->belongsTo(AcademicYear::class, 'academic_year_id');
+    }
 }
