@@ -61,7 +61,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Classes::class, 'class_id');
     }
-    public function studnetAcademicYear()
+    public function studentAcademicYear()
     {
         return $this->belongsTo(AcademicYear::class, 'academic_year_id');
     }

@@ -54,10 +54,27 @@ class StudentController extends Controller
 
         return redirect()->route('student.create')->with('success', 'Student Added Successfully.');
     }
-    public function read()
+    public function read(Request $request)
     {
         //studentClass is imported from the User Model which has class details 
-        $query = User::with(['studentClass'])->where('role', 'student')->latest('id')->get();
         // dd($query); here to see this in browser just use the syntax and know that the return() uses doesnt effect anything.
+        $query = User::with(['studentClass', 'studentAcademicYear'])->where('role', 'student')->latest('id');
+
+        if ($request->filled('academic_year_id')) {
+            $query->where('academic_year_id', $request->get('academic_year_id'));
+        }
+
+        if ($request->filled('class_id')) {
+            $query->where('class_id', $request->get('class_id'));
+        }
+        //the above codes and FeeStructure controller codes are bit different are used for same task to filter the datas of the table.
+
+        $students = $query->get();
+        $classes = Classes::all();
+        $academic_year = AcademicYear::all();
+
+
+
+        return view('admin.student.student_list', compact('students', 'classes', 'academic_year'));
     }
 }
