@@ -106,7 +106,7 @@
                                         <td>
                                             {{-- <form action="{{route('student.delete',$item->id)}}" method="POST">
                                                 --}}
-                                                <form action="" method="POST">
+                                                <form action="{{route('student.delete',$item->id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit"

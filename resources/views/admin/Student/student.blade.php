@@ -129,8 +129,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">Date of Birth</label>
-                                        <input type="date" class="form-control" name='dob' id="exampleInputEmail1"
-                                            placeholder="Enter July Fee">
+                                        <input type="date" class="form-control" name='dob' id="exampleInputEmail1">
 
                                         @error('dob')
                                         <p class="text-danger">{{$message}}</p>
@@ -139,7 +138,7 @@
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">Mobile Number </label>
                                         <input type="text" class="form-control" name='mobno' id="exampleInputEmail1"
-                                            placeholder="Enter August Fee">
+                                            placeholder="Enter Students Mobile No.">
 
                                         @error('mobno')
                                         <p class="text-danger">{{$message}}</p>

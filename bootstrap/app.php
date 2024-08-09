@@ -10,13 +10,19 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__ . '/../routes/console.php',
         health: '/up',
     )
-    // this changed for guest and admin
+    // this changed for guest and admin ***Written By me hai ta default haina
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias(
             [
                 'admin.guest' => App\Http\Middleware\AdminRedirect::class,
                 'admin.auth' => App\Http\Middleware\AdminAuthenticate::class,
             ]
+        );
+
+        ///this  part of code is to restrict the unauthorized users to getting to diffrent pages.
+        $middleware->redirectTo(
+            guests: '/student/login',
+            users: '/student/dashboard'
         );
     })
     ->withExceptions(function (Exceptions $exceptions) {

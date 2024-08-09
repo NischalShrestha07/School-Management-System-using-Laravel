@@ -121,7 +121,7 @@ class StudentController extends Controller
             'dob' => 'required',
             'mobno' => 'required',
             'email' => 'required|email',
-            'password' => 'nullable|min:8', // Password is optional and should be at least 8 characters
+            'password' => 'nullable', // Password is optional and should be at least 8 characters
         ]);
 
         $user = User::find($id);
