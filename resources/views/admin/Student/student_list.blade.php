@@ -79,6 +79,7 @@
                                         <th>Mother's Name</th>
                                         <th>Mobile Number</th>
                                         <th>Email</th>
+                                        <th>Created At</th>
                                         <th>Edit </th>
                                         <th>Delete</th>
                                     </tr>
@@ -98,16 +99,20 @@
                                         <td>{{$item->mobno}}</td>
                                         <td>{{$item->email}}</td>
                                         <td>{{$item->created_at}}</td>
-                                        <td><a class="btn btn-primary" href="{{route('class.edit',$item->id)}}">Edit</a>
+                                        <td><a class="btn btn-primary"
+                                                href="{{route('student.edit',$item->id)}}">Edit</a>
                                         </td>
-                                        {{-- <td><a class="btn btn-danger"
-                                                href="{{route('class.delete',$item->id)}}">Delete</a></td> --}}
+
                                         <td>
-                                            <form action="{{route('class.delete',$item->id)}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
+                                            {{-- <form action="{{route('student.delete',$item->id)}}" method="POST">
+                                                --}}
+                                                <form action="" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        onclick="return confirm('Are You sure you want to delete ?')"
+                                                        class="btn btn-danger">Delete</button>
+                                                </form>
                                         </td>
                                     </tr>
                                     @endforeach
