@@ -47,14 +47,16 @@
                                         <select name="academic_year_id" class="form-control" id="">
                                             <option value="" disabled selected>Select Academic Years</option>
                                             @foreach ($academic_year as $item)
-                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                            <option value="{{$item->id}}" {{$item->id == request('academic_year_id') ?
+                                                'selected' : ''}}>{{$item->name}}</option>
 
                                             @endforeach
                                         </select>
                                         <select name="class_id" class="form-control" id="">
                                             <option value="" disabled selected>Select Class</option>
                                             @foreach ($classes as $item)
-                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                            <option value="{{$item->id}}" {{$item->id == request('class_id') ?
+                                                'selected' : ''}}>{{$item->name}}</option>
 
                                             @endforeach
                                         </select>

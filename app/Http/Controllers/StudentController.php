@@ -77,4 +77,11 @@ class StudentController extends Controller
 
         return view('admin.student.student_list', compact('students', 'classes', 'academic_year'));
     }
+
+
+    public function edit($id)
+    {
+        $students = User::find($id);
+        return view('admin.student.edit_student', compact('students'));
+    }
 }
