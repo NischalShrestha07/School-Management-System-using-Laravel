@@ -12,7 +12,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.subject.form');
     }
 
     /**
@@ -28,15 +28,26 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'type' => 'required',
+        ]);
+        $subject = new Subject();
+        $subject->name = $request->name;
+        $subject->type = $request->type;
+        $subject->save();
+
+        return redirect()->route('subject.create')->with('success', 'Subject Added Successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Subject $subject)
+    public function read()
     {
-        //
+        $subjects = Subject::all();
+        // dd($subjects);
+        return view('admin.subject.table', compact('subjects'));
     }
 
     /**
