@@ -5,6 +5,17 @@
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid">
+            <div class="row">
+<div class="col-md-12">
+    @foreach ($announcement as $item)
+    <div class="alert alert-warning">
+{{$item->notice}}
+    </div>
+
+    @endforeach
+</div>
+
+            </div>
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Dashboard</h1>

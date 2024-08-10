@@ -64,12 +64,12 @@
                                         <td>{{$item->notice}}</td>
                                         <td>{{$item->created_at}}</td>
                                         <td><a class="btn btn-primary" style="padding: 14px 35px"
-                                                href="{{route('academic_year.edit',$item->id)}}">Edit
+                                                href="{{route('announcement.edit',$item->id)}}">Edit
                                             </a>
                                         </td>
                                         <td>
                                             <form class="btn btn-danger"
-                                                action="{{route('academic_year.delete',$item->id)}}" method="POST">
+                                                action="{{route('announcement.delete',$item->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>
