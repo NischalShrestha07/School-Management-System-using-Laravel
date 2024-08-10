@@ -3,13 +3,14 @@
 use App\Http\Controllers\AcademicYear;
 use App\Http\Controllers\AcademicYearController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AnnouncmentController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FeeHeadController;
 use App\Http\Controllers\FeeStructureController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
-use App\Models\FeeStructure;
+use App\Models\Announcment;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -82,7 +83,9 @@ Route::group(['prefix' => 'admin'], function () {
 
 
         //Announcements Route
-        Route::get('announcement/create', [AnnouncmentController::class, 'index'])->name('announcement.create');
+        Route::get('announcement/create', [AnnouncementController::class, 'index'])->name('announcement.create');
+        Route::post('announcement/store', [AnnouncementController::class, 'store'])->name('announcement.store');
+        Route::get('announcement/read', [AnnouncementController::class, 'read'])->name('announcement.read');
 
         //Classes Route
         Route::get('class/create', [ClassesController::class, 'index'])->name('class.create');

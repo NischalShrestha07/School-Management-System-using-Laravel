@@ -50,7 +50,7 @@
                         </div>
 
 
-                        <form action="{{route('feestructure.store')}}" method="POST">
+                        <form action="{{route('announcement.store')}}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">

@@ -30,14 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Schema::dropColumn('class_id');
-        // Schema::dropColumn('academic_year_id');
-        // Schema::dropColumn('admission_date');
-        // Schema::dropColumn('father_name');
-        // Schema::dropColumn('mother_name');
-        // Schema::dropColumn('mobno');
-        // Schema::dropColumn('dob');
-
         Schema::table('users', function (Blueprint $table) {
             // Dropping foreign key constraints
             $table->dropForeign(['class_id']);

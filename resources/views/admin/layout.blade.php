@@ -379,7 +379,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('student.read')}}" class="nav-link">
+                                    <a href="{{route('announcement.read')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>View Record</p>
                                     </a>
