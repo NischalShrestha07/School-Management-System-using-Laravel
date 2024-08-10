@@ -3,6 +3,7 @@
 use App\Http\Controllers\AcademicYear;
 use App\Http\Controllers\AcademicYearController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AnnouncmentController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FeeHeadController;
 use App\Http\Controllers\FeeStructureController;
@@ -16,7 +17,7 @@ Route::get('/', function () {
 });
 
 
-// Route::get('student/login', [UserController::class, 'index'])->name('student.login');
+// Rote::get('student/login', [UserController::class, 'index'])->name('student.login');
 // Route::post('student/authenticate', [UserController::class, 'authenticate'])->name('student.authenticate');
 // Route::get('student/dashboard', [UserController::class, 'dashboard'])->name('student.dashboard');
 // Route::get('student/logout', [UserController::class, 'logout'])->name('student.logout');
@@ -51,6 +52,7 @@ Route::group(['prefix' => 'student'], function () {
 
 
 
+
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'admin.guest'], function () {
         Route::get('login', [AdminController::class, 'index'])->name('admin.login');
@@ -68,19 +70,19 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('table', [AdminController::class, 'table'])->name('admin.table');
 
 
-        /// Acaddemic Year route
+        /// Academic Year route
         Route::get('academic_year/create', [AcademicYearController::class, 'index'])->name('academic_year.create');
-
         Route::post('academic_year/store', [AcademicYearController::class, 'store'])->name('academic_year.store');
-
         Route::get('academic_year/read', [AcademicYearController::class, 'read'])->name('academic_year.read');
-
         Route::get('academic_year/edit/{id}', [AcademicYearController::class, 'edit'])->name('academic_year.edit');
-
         Route::delete('academic_year/delete/{id}', [AcademicYearController::class, 'delete'])->name('academic_year.delete');
-
         Route::put('academic_year/update/{id}', [AcademicYearController::class, 'update'])->name('academic_year.update');
 
+
+
+
+        //Announcements Route
+        Route::get('announcement/create', [AnnouncmentController::class, 'index'])->name('announcement.create');
 
         //Classes Route
         Route::get('class/create', [ClassesController::class, 'index'])->name('class.create');
@@ -89,6 +91,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('class/edit/{id}', [ClassesController::class, 'edit'])->name('class.edit');
         Route::put('class/update/{id}', [ClassesController::class, 'update'])->name('class.update');
         Route::delete('class/delete/{id}', [ClassesController::class, 'delete'])->name('class.delete');
+
 
 
         //Fee Head manageements
@@ -116,7 +119,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('student/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
     });
 });
-
 
 
 //below routes are all before authentication/for guest so its placed in admin.auth

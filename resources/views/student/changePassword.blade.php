@@ -40,7 +40,7 @@
                         <div class="alert alert-success">
                             {{Session::get('success')}}
                         </div>
-
+                      @endif
 
                         {{-- tthese Session are used to print the success notice above  for errors--}}
                         @if (Session::has('error'))

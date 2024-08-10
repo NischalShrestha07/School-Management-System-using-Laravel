@@ -58,13 +58,16 @@ class UserController extends Controller
         ]);
         $oldPassword = $request->oldPassword;
         $newPassword = $request->newPassword;
-        $user = User::find(Auth::user()->id);
+        $user = User::find(Auth::user()->id); //find user
         // dd($user);
 
-        if (Hash::check($oldPassword, $user->password)) {
-            echo 'ok';
+        if (Hash::check($oldPassword, $user->password)) { //checked wheather the password is correct or not
+
+            $user->password = $newPassword;
+            $user->update();
+            return redirect()->back()->with('success', 'Password Changed Successfully.');
         } else {
-            return redirect()->with('error', 'Old Password Doesnt matches');
+            return redirect()->back()->with('error', 'Old Password Does not match.');
         }
     }
 }
