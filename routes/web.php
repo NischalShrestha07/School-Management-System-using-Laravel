@@ -16,10 +16,36 @@ Route::get('/', function () {
 });
 
 
-Route::get('student/login', [UserController::class, 'index'])->name('student.login');
-Route::post('student/authenticate', [UserController::class, 'authenticate'])->name('student.authenticate');
-Route::get('student/dashboard', [UserController::class, 'dashboard'])->name('student.dashboard');
-Route::get('student/logout', [UserController::class, 'logout'])->name('student.logout');
+// Route::get('student/login', [UserController::class, 'index'])->name('student.login');
+// Route::post('student/authenticate', [UserController::class, 'authenticate'])->name('student.authenticate');
+// Route::get('student/dashboard', [UserController::class, 'dashboard'])->name('student.dashboard');
+// Route::get('student/logout', [UserController::class, 'logout'])->name('student.logout');
+
+
+Route::group(['prefix' => 'student'], function () {
+    ///guest
+    Route::group(['middleware' => 'guest'], function () {
+        //
+        Route::get('login', [UserController::class, 'index'])->name('student.login');
+        Route::post('authenticate', [UserController::class, 'authenticate'])->name('student.authenticate');
+    });
+
+
+
+    //auth
+    Route::group(['middleware' => 'auth'], function () {
+        //
+        Route::get('dashboard', [UserController::class, 'dashboard'])->name('student.dashboard');
+        Route::get('logout', [UserController::class, 'logout'])->name('student.logout');
+        Route::get('changePassword', [UserController::class, 'changePassword'])->name('student.changePassword');
+        Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('student.updatePassword');
+    });
+});
+
+
+
+
+
 
 
 

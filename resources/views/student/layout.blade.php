@@ -218,149 +218,29 @@
                         data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="{{route('admin.dashboard')}}" class="nav-link">
+                            <a href="{{route('student.dashboard')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Dashboard
-                                    <span class="right badge badge-danger">Admin</span>
+                                    <span class="right badge badge-danger">Student</span>
                                 </p>
                             </a>
                         </li>
-                        {{-- academic_year --}}
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                            <a href="{{route('student.logout')}}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Academic Year
-                                    <i class="right fas fa-angle-left"></i>
+                                    Logout
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('academic_year.create')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('academic_year.read')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
 
 
-                        {{-- class mngt --}}
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Class Mngt
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('class.create')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('class.read')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
-                                    </a>
 
-                                </li>
-                            </ul>
+                    </ul>
 
-                        </li>
-
-                        {{-- feehead mngt --}}
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-
-                                <p>
-                                    Fee Head Mngt
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('feehead.create')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('feehead.read')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
-                                    </a>
-
-                                </li>
-                            </ul>
-
-                        </li>
-                        {{-- feestructure mngt --}}
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-
-                                <p>
-                                    Fee Structure Mngt
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('feestructure.create')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('feestructure.read')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
-                                    </a>
-
-                                </li>
-                            </ul>
-
-                        </li>
-                        {{-- student mngt --}}
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-
-                                <p>
-                                    Student Mngt
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('student.create')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('student.read')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
-                                    </a>
-
-                                </li>
-                            </ul>
-
-                        </li>
+                    </li>
 
 
                     </ul>
