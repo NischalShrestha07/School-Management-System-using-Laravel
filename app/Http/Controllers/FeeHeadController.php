@@ -50,9 +50,9 @@ class FeeHeadController extends Controller
             $feehead->name = $request->name;
             $feehead->save();
 
-            return redirect()->route('feehead.create')->with('Fee Head Updated Successfully.');
+            return redirect()->route('feehead.read')->with('Fee Head Updated Successfully.');
         }
-        return redirect()->route('feehead.read')->with('success', 'Feed Head not Found.');
+        return redirect()->route('feehead.create')->with('success', 'Feed Head not Found.');
     }
 
 

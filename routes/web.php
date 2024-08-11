@@ -5,6 +5,7 @@ use App\Http\Controllers\AcademicYearController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AnnouncmentController;
+use App\Http\Controllers\AssignSubjectToClassController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FeeHeadController;
 use App\Http\Controllers\FeeStructureController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserController;
 use App\Models\Announcment;
+use App\Models\AssignSubjectToClass;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -93,11 +95,16 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('announcement/delete/{id}', [AnnouncementController::class, 'delete'])->name('announcement.delete');
 
 
-        //Subject Route
+        ///Subject Route
         Route::get('subject/create', [SubjectController::class, 'index'])->name('subject.create');
         Route::post('subject/store', [SubjectController::class, 'store'])->name('subject.store');
         Route::get('subject/read', [SubjectController::class, 'read'])->name('subject.read');
+        Route::get('subject/edit/{id}', [SubjectController::class, 'edit'])->name('subject.edit');
+        Route::put('subject/update/{id}', [SubjectController::class, 'update'])->name('subject.update');
+        Route::delete('subject/delete/{id}', [SubjectController::class, 'delete'])->name('subject.delete');
 
+        //assign Subject route
+        Route::get('assignSubject/create', [AssignSubjectToClassController::class, 'index'])->name('assignSubject.create');
 
 
 

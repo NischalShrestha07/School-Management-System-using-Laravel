@@ -15,12 +15,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Manage Subject</h1>
+                    <h1> Subject Management</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item active">Subject</li>
+                        <li class="breadcrumb-item active">Subject Details</li>
                     </ol>
                 </div>
             </div>
@@ -46,40 +46,43 @@
 
 
                         <div class="card-header">
-                            <h3 class="card-title">Add Subject</h3>
+                            <h3 class="card-title">Update Subject</h3>
                         </div>
 
 
-                        <form action="{{route('subject.store')}}" method="POST">
+                        <form action="{{route('subject.update',$subjects->id)}}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Subject Name</label>
-                                    <input type="text" class="form-control" name='name' id="exampleInputEmail1"
-                                        placeholder="Enter Subject Name">
+                                    <label for="exampleInputEmail1">Subject</label>
+                                    <input type="text" class="form-control" value="{{old('name',$subjects->name)}}"
+                                        name='name' id="exampleInputEmail1" placeholder="Enter Subject">
                                         @error('name')
                                         <p class="text-danger">{{$message}}</p>
-                                          @enderror
+
+                                        @enderror
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Subject Type</label>
-                                    <select name="type" class="form-control" id="">
-                                        <option value="" disabled selected>Select List</option>
-                                        <option value="theory">Theory</option>
-                                        <option value="practical" >Practical</option>
-                                    </select>
-                                    @error('type')
-                                    <p class="text-danger">{{$message}}</p>
+                                    {{-- <input type="text" class="form-control" value="{{old('name',$subjects->type)}}"
+                                        name='type' id="exampleInputEmail1" placeholder="Enter Subject Type"> --}}
+                                        <select name="type" class="form-control" id="">
+                                            <option value="theory" {{$subjects->type}}>Theory</option>
+                                            <option value="practical" {{$subjects->type}}>Practical</option>
+                                        </select>
+                                        @error('type')
+                                        <p class="text-danger">{{$message}}</p>
 
-                                    @enderror
+                                        @enderror
                                 </div>
+
 
                             </div>
 
-
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Update Subject</button>
                             </div>
                         </form>
                     </div>

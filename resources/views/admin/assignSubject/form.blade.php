@@ -15,12 +15,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Manage Subject</h1>
+                    <h1> Assign Subject</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item active">Subject</li>
+                        <li class="breadcrumb-item active">Assign Subject</li>
                     </ol>
                 </div>
             </div>
@@ -46,36 +46,34 @@
 
 
                         <div class="card-header">
-                            <h3 class="card-title">Add Subject</h3>
+                            <h3 class="card-title">Add Assign Subject</h3>
                         </div>
 
 
-                        <form action="{{route('subject.store')}}" method="POST">
+                        <form action="{{route('class.store')}}" method="POST">
                             @csrf
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Subject Name</label>
-                                    <input type="text" class="form-control" name='name' id="exampleInputEmail1"
-                                        placeholder="Enter Subject Name">
-                                        @error('name')
-                                        <p class="text-danger">{{$message}}</p>
-                                          @enderror
-                                </div>
+                               <select name="class_id" id="" class="form-control">
+                                <option value="" disabled  selected>Select Class</option>
+                                @foreach ($classes as $item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endforeach
+                               </select>
+                                @error('class_id')
+                                <p class="text-danger">{{$message}}</p>
 
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Subject Type</label>
-                                    <select name="type" class="form-control" id="">
-                                        <option value="" disabled selected>Select List</option>
-                                        <option value="theory">Theory</option>
-                                        <option value="practical" >Practical</option>
-                                    </select>
-                                    @error('type')
-                                    <p class="text-danger">{{$message}}</p>
-
-                                    @enderror
-                                </div>
+                                @enderror
 
                             </div>
+                              @foreach ($subjects as $item)
+                            <div class="form-check">
+                                <input type="checkbox" name="subject_id[]" class="" id="subject-{{$item->id}}" value="{{$item->id}}">
+                                <label for="subject-{{$item->id}}">{{$item->name}}</label>
+                            </div>
+                            @endforeach
+                            @error('subject_id')
+                                    <p class="text-danger">{{$message}}</p>
+                            @enderror
 
 
                             <div class="card-footer">

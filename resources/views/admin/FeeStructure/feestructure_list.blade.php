@@ -78,7 +78,7 @@
                                         <th>ID</th>
                                         <th>Academic Year</th>
                                         <th>Class</th>
-                                        <th>Fee Head </th>
+                                        {{-- <th>Fee Head</th> --}}
                                         <th>April</th>
                                         <th>May</th>
                                         <th>June</th>
@@ -102,7 +102,7 @@
                                         <td>{{$item->id}}</td>
                                         <td>{{$item->AcademicYear->name}}</td>
                                         <td>{{$item->Classes->name}}</td>
-                                        <td>{{$item->FeeHead->name}}</td>
+                                        {{-- <td>{{$item->FeeHead->name}}</td> --}}
                                         {{-- <td>{{$item->created_at}}</td> --}}
                                         <td>{{$item->april}}</td>
                                         <td>{{$item->may}}</td>

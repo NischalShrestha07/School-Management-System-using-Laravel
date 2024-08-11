@@ -15,17 +15,6 @@ class SubjectController extends Controller
         return view('admin.subject.form');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -40,9 +29,7 @@ class SubjectController extends Controller
         return redirect()->route('subject.create')->with('success', 'Subject Added Successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function read()
     {
         $subjects = Subject::all();
@@ -50,27 +37,30 @@ class SubjectController extends Controller
         return view('admin.subject.table', compact('subjects'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Subject $subject)
+    public function edit(Request $request, $id)
     {
-        //
+        $subjects = Subject::find($id);
+        return view('admin.subject.editSubject', compact('subjects'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Subject $subject)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $request->validate([
+            'name' => 'required',
+            'type' => 'required'
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Subject $subject)
+        $subjects = Subject::find($id);
+        $subjects->name = $request->name;
+        $subjects->type = $request->type;
+        $subjects->update();
+
+        return redirect()->route('subject.read')->with('success', 'Subject Updated Successfully.');
+    }
+    public function delete($id)
     {
-        //
+        $subjects = Subject::find($id);
+        $subjects->delete();
+        return redirect()->route('subject.read')->with('success', 'Subject Deleted Successfully.');
     }
 }
