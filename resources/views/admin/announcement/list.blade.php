@@ -72,22 +72,14 @@
                                                 action="{{route('announcement.delete',$item->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" onclick="return Are You Sure You want to delele it ?" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>
 
                                     </tr>
                                     @endforeach
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
-                                        <th>CSS grade</th>
-                                    </tr>
-                                </tfoot>
+
                             </table>
                         </div>
 

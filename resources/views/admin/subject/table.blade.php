@@ -73,7 +73,7 @@
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" onclick="return Are You Sure you want to delete it ?" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>
 

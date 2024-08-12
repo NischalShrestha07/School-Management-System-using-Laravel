@@ -55,9 +55,12 @@ class StudentController extends Controller
 
         return redirect()->route('student.create')->with('success', 'Student Added Successfully.');
     }
+
+
+    // Filters the class and academic_year.
     public function read(Request $request)
     {
-        //studentClass is imported from the User Model which has class details 
+        //studentClass is imported from the User Model which has class details
         // dd($query); here to see this in browser just use the syntax and know that the return() uses doesnt effect anything.
         $query = User::with(['studentClass', 'studentAcademicYear'])->where('role', 'student')->latest('id');
 

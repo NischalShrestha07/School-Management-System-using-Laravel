@@ -50,7 +50,7 @@
                         </div>
 
 
-                        <form action="{{route('class.store')}}" method="POST">
+                        <form action="{{route('assignSubject.store')}}" method="POST">
                             @csrf
                             <div class="card-body">
                                <select name="class_id" id="" class="form-control">

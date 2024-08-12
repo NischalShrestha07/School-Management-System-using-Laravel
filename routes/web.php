@@ -105,6 +105,11 @@ Route::group(['prefix' => 'admin'], function () {
 
         //assign Subject route
         Route::get('assignSubject/create', [AssignSubjectToClassController::class, 'index'])->name('assignSubject.create');
+        Route::post('assignSubject/store', [AssignSubjectToClassController::class, 'store'])->name('assignSubject.store');
+        Route::get('assignSubject/read', [AssignSubjectToClassController::class, 'read'])->name('assignSubject.read');
+        // Route::get('assignSubject/edit/{id}', [AssignSubjectToClassController::class, 'edit'])->name('assignSubject.edit');
+        // Route::put('assignSubject/update/{id}', [AssignSubjectToClassController::class, 'update'])->name('assignSubject.update');
+        Route::delete('assignSubject/delete/{id}', [AssignSubjectToClassController::class, 'delete'])->name('assignSubject.delete');
 
 
 
