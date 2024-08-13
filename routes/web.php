@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AnnouncmentController;
 use App\Http\Controllers\AssignSubjectToClassController;
+use App\Http\Controllers\AssignTeacherToClassController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FeeHeadController;
 use App\Http\Controllers\FeeStructureController;
@@ -47,16 +48,20 @@ Route::group(['prefix' => 'student'], function () {
         Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('student.updatePassword');
     });
 });
+//for middleware the code is added inside bootstrap/cache/app
+//for middleware initialization code is added in app/Http/Middleware
+//GO THrough these middleware.
+Route::group(['prefix' => 'teacher'], function () {
+    Route::group(['middleware' => 'teacher.guest'], function () {
+        Route::get('login', [TeacherController::class, 'login'])->name('teacher.login');
+        Route::post('authenticate', [TeacherController::class, 'authenticate'])->name('teacher.authenticate');
+    });
 
-
-
-
-
-
-
-
-
-
+    Route::group(['middleware' => 'teacher.auth'], function () {
+        Route::get('dashboard', [TeacherController::class, 'dashboard'])->name('teacher.dashboard');
+        Route::get('logout', [TeacherController::class, 'logout'])->name('teacher.logout');
+    });
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'admin.guest'], function () {
@@ -65,7 +70,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('login', [AdminController::class, 'authenticate'])->name('admin.authenticate');
     });
     Route::group(['middleware' => 'admin.auth'], function () {
-        //
+
         Route::get('logout', [AdminController::class, 'logout'])->name('admin.logout');
 
         Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
@@ -121,6 +126,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('teacher/update/{id}', [TeacherController::class, 'update'])->name('teacher.update');
         Route::delete('teacher/delete/{id}', [TeacherController::class, 'delete'])->name('teacher.delete');
 
+
+        ///Assign Teacher To Class Route
+        Route::get('assignTeacher/create', [AssignTeacherToClassController::class, 'index'])->name('assignTeacher.create');
+        Route::get('findSubject', [AssignTeacherToClassController::class, 'findSubject'])->name('findSubject');
 
 
 

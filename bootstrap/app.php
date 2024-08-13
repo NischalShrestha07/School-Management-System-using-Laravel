@@ -16,7 +16,9 @@ return Application::configure(basePath: dirname(__DIR__))
             [
                 'admin.guest' => App\Http\Middleware\AdminRedirect::class,
                 'admin.auth' => App\Http\Middleware\AdminAuthenticate::class,
-            ]
+                'teacher.guest' => App\Http\Middleware\TeacherRedirect::class,
+                'teacher.auth' => App\Http\Middleware\TeacherAuthenticate::class,
+            ],
         );
 
         ///this  part of code is to restrict the unauthorized users to getting to diffrent pages.

@@ -28,6 +28,10 @@
 
     <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
+
+    {{-- /////TOKEN RELATED IMPORTANT POINTS --}}
+    <meta name="csrf-token" content="{{csrf_token()}}" />
+
     <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
 
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
@@ -473,6 +477,34 @@
 
 
                         </li>
+                        {{--Assign Teacher to Classes mngt --}}
+                        {{-- <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+
+                                <p>
+                                    Assign Teacher Mngt
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('assignTeacher.create')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Assign Teacher</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('teacher.read')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Teacher List</p>
+                                    </a>
+
+                                </li>
+                            </ul>
+
+
+                        </li> --}}
 
                     </ul>
                 </nav>

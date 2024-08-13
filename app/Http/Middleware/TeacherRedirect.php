@@ -17,7 +17,7 @@ class TeacherRedirect
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::guard('teacher')->check()) {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('teacher.dashboard');
         }
         return $next($request);
     }
