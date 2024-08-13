@@ -77,7 +77,7 @@
                                         <td>{{$item->subject->name}}</td>
                                         <td>{{$item->subject->type}}</td>
                                         <td>{{$item->created_at}}</td>
-                                        <td><a class="btn btn-primary" href="{{route('class.edit',$item->id)}}">Edit</a>
+                                        <td><a class="btn btn-primary" href="{{route('assignSubject.edit',$item->id)}}">Edit</a>
                                         </td>
                                         {{-- <td><a class="btn btn-danger"
                                                 href="{{route('class.delete',$item->id)}}">Delete</a></td> --}}

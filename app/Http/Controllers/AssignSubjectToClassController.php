@@ -69,16 +69,23 @@ class AssignSubjectToClassController extends Controller
     public function edit($id)
     {
         $classes = Classes::all();
+        $subjects = Subject::all();
 
-        $subjects = AssignSubjectToClass::find($id);
+        $assignSubject = AssignSubjectToClass::find($id);
 
-        return view('admin.assignSubject.editForm', compact('subjects', 'classes'));
+        return view('admin.assignSubject.editForm', compact('assignSubject', 'classes', 'subjects'));
     }
 
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        //
+
+        $subjects = AssignSubjectToClass::find($id);
+        $subjects->class_id = $request->class_id;
+        $subjects->subject_id = $request->subject_id;
+        $subjects->update();
+
+        return redirect()->route('assignSubject.update')->with('success', 'Subject assigned to Class Updated Successfully.');
     }
     public function delete($id)
     {

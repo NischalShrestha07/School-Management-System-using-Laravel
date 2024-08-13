@@ -50,7 +50,7 @@
                         </div>
 
 
-                        <form action="{{route('announcement.update',$announcement->id)}}" method="POST">
+                        <form action="{{route('assignSubject.update',$assignSubject->id)}}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
