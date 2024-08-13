@@ -46,7 +46,7 @@
                         </div>
 
 
-                        <form action="{{route('student.store')}}" method="POST">
+                        <form action="{{route('teacher.store')}}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -138,7 +138,7 @@
                                     <div class="form-group col-md-4">
                                         <label for="exampleInputEmail1">Mobile Number </label>
                                         <input type="text" class="form-control" name='mobno' id="exampleInputEmail1"
-                                            placeholder="Enter Students Mobile No.">
+                                            placeholder="Enter Teachers Mobile No.">
 
                                         @error('mobno')
                                         <p class="text-danger">{{$message}}</p>

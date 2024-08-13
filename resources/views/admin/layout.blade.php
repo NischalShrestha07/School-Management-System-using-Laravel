@@ -239,13 +239,13 @@
                                 <li class="nav-item">
                                     <a href="{{route('academic_year.create')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
+                                        <p>Add Academic Year</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('academic_year.read')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
+                                        <p>View Academic Years List</p>
                                     </a>
                                 </li>
                             </ul>
@@ -266,13 +266,13 @@
                                 <li class="nav-item">
                                     <a href="{{route('class.create')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
+                                        <p>Add Class</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('class.read')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
+                                        <p>View Class List</p>
                                     </a>
 
                                 </li>
@@ -294,13 +294,13 @@
                                 <li class="nav-item">
                                     <a href="{{route('feehead.create')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
+                                        <p>Add Fee Head</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('feehead.read')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
+                                        <p>View Fee Head</p>
                                     </a>
 
                                 </li>
@@ -321,13 +321,13 @@
                                 <li class="nav-item">
                                     <a href="{{route('feestructure.create')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
+                                        <p>Add FeeStructure</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('feestructure.read')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
+                                        <p>View FeeStructure List</p>
                                     </a>
 
                                 </li>
@@ -348,13 +348,13 @@
                                 <li class="nav-item">
                                     <a href="{{route('student.create')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
+                                        <p>Add Student</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('student.read')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
+                                        <p>View Student List</p>
                                     </a>
 
                                 </li>
@@ -375,13 +375,41 @@
                                 <li class="nav-item">
                                     <a href="{{route('announcement.create')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
+                                        <p>Add Announcement</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('announcement.read')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
+                                        <p>View Announcement List</p>
+                                    </a>
+
+                                </li>
+                            </ul>
+
+
+                        </li>
+                        {{-- Assign Subject mngt --}}
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+
+                                <p>
+                                    Assign Subject Mngt
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('assignSubject.create')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Subject to Assign</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('assignSubject.read')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Assigned Subject</p>
                                     </a>
 
                                 </li>
@@ -431,13 +459,13 @@
                                 <li class="nav-item">
                                     <a href="{{route('teacher.create')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
+                                        <p>Add Teacher</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('assignSubject.read')}}" class="nav-link">
+                                    <a href="{{route('teacher.read')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
+                                        <p>View Teacher List</p>
                                     </a>
 
                                 </li>
